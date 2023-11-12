@@ -1,17 +1,19 @@
-import './App.css';
-import './App.css'
+import './Components/App.css'
+import Addtask from './Components/Addtask';
+import ListTask from './Components/ListTask';
+
+
 function App() {
+  
   return (
     <div>
       <div className="container">
         <form className="input-section">
           <h1>Todo App</h1>
-          <input type="text" placeholder='Enter items..' />
+          <Addtask/>
         </form>
         <ul>
-          <li>Add <i className="fas fa-trash-alt"></i></li>
-          <li>Add <i className="fas fa-trash-alt"></i></li>
-          <li>Add <i className="fas fa-trash-alt"></i></li>
+          <ListTask/>
         </ul>
       </div>
     </div>
