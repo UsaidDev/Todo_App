@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Components/App.css';
 import Addtask from './Components/Addtask';
 import ListTask from './Components/ListTask';
 
 function App() {
-  const [tasks, SetTask] = useState([
+  const [tasks, SetTask] = useState([]);
 
-  ])
-  const AddTask=(title)=>{
-    const newTask=[...tasks,{title}]
+  useEffect(() => {
+    document.title = `You have ${tasks.length} Pending Task(s)`;
+  }, [tasks]);
+
+  const AddTask = (title) => {
+    const newTask = [...tasks, { title }]
+    SetTask(newTask)
+  }
+
+  const RemoveTask = (index) => {
+    const newTask = [...tasks]
+    newTask.splice(index, 1)
     SetTask(newTask)
   }
   return (
@@ -25,8 +34,8 @@ function App() {
         </div>
         <Addtask Addtask={AddTask} />
         <div className="todos">
-          {tasks.map((task) => (
-            <ListTask key={task.title} task={task} />
+          {tasks.map((task, index) => (
+            <ListTask task={task} Removetask={RemoveTask} index={index} key={index} />
           ))};
         </div>
       </div>

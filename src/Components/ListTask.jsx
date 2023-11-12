@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ListTask({task}) {
+function ListTask({task,index,Removetask}) {
   return (
     <div>
       <div className="todo">
@@ -8,7 +8,7 @@ function ListTask({task}) {
             <p>{task.title}</p>
           </div>
           <div className="right">
-            <i className="fas fa-times"></i>
+            <i onClick={()=>{Removetask(index)}} className="fas fa-times"></i>
           </div>
         </div>
     </div>
