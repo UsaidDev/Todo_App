@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Addtask() {
+function Addtask({Addtask}) {
+  const [value,SetValue]=useState('')
+  const Additem=()=>{
+    Addtask(value)
+    SetValue("")
+  }
   return (
     <div>
-      <input type="text" placeholder='Enter items..'/>
+      <div className="input">
+        <input type="text" placeholder="🖊️ Add item..."
+        value={value}
+        onChange={((e)=>SetValue(e.target.value))}
+        />
+        <i onClick={Additem} className="fas fa-plus"></i>
+      </div>
     </div>
   )
 }

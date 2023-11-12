@@ -1,11 +1,16 @@
 import React from 'react'
 
-function ListTask() {
+function ListTask({task}) {
   return (
     <div>
-      <li>Add <button >Delete</button></li>
-      <li>Add <button>Delete</button></li>
-      <li>Add <button>Delete</button></li>
+      <div className="todo">
+          <div className="left">
+            <p>{task.title}</p>
+          </div>
+          <div className="right">
+            <i className="fas fa-times"></i>
+          </div>
+        </div>
     </div>
   )
 }
